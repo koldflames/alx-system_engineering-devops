@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Install and setup haprozy loadbalancer
+
+sudo apt-get update
+sudo apt-get install -y haproxy
+
+sudo echo "ENABLED=1" > /etc/default/haproxy
+
+LISTEN="
+listen lb_server
+	bind *:80
+	mode http
+	balance roundrobin
+	option httpclose
+	option forwardfor
+	server 297979-web-01 54.84.42.224:80 check
+	server 297979-web-02 54.172.73.147:80 check
+"
+
+sudo echo "$LISTEN" >> /etc/haproxy/haproxy.cfg
+sudo service haproxy start
+
