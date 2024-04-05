@@ -46,5 +46,5 @@ frontend eihoda-frontend-https
 
 backend eihoda-backend
         balance roundrobin
-        server 63210-web-01 54.84.42.224:80 check
-        server 63210-web-02 54.172.73.147:80 check
+        server 297979-web-01 54.84.42.224:80 check
+        server 297979-web-02 54.172.73.147:80 check
